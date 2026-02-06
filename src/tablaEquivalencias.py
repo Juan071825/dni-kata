@@ -30,10 +30,23 @@ class TablaEquivalencias():
     def getTabla(self):
         return self.tabla
     
+    def getLetra(self, clave):
+        try:
+            return self.tabla[clave]
+        except KeyError:
+            return "La letra no es válida."
+    
+    def getModulo(self):
+        return len(self.tabla)
+    
+    def isLetraValida(self, letra):
+        letra in self.tabla
+
+    
     def __repr__(self):
         return str(self.tabla)
     
-    
+
     
 
 if __name__ == '__main__':
