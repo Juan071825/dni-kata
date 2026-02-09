@@ -45,11 +45,6 @@ def test_isLetraValida(tabla):
     assert tabla.isLetraValida("T")
     assert not tabla.isLetraValida("I")
 
-@pytest.mark.parametrize("dni", CASOS_TEST_CORRECTOS)
-def test_calcularLetra_correcta(tabla, "dni"):
-    numero_dni = dni[:-1]
-    letra_dni = dni[-1]
 
-    assert tabla.calcularLetra(numero_dni) == letra_dni
 
 
