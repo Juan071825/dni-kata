@@ -44,7 +44,3 @@ def test_getModulo(tabla):
 def test_isLetraValida(tabla):
     assert tabla.isLetraValida("T")
     assert not tabla.isLetraValida("I")
-
-
-
-
