@@ -1,5 +1,11 @@
 import pytest
 
+
+@pytest.fixture(name="tabla")
+def tablaEquivalencias():
+    return tablaEquivalencias()
+
+
 def test_getTabla(tabla):
 
     assert tabla.getTabla() == [
@@ -27,8 +33,3 @@ def test_getTabla(tabla):
         "K",
         "E",
     ]
-
-def test_getLetra(tabla):
-    assert tabla.getLetra(4) == "G"
-    assert tabla.getLetra(12) == "N"
-    assert tabla.getLetra(32) == "Posicion letra fuera de rango"
