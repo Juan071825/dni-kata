@@ -2,45 +2,45 @@ class TablaEquivalencias():
 
     def __init__(self):
         self.tabla = (
-            0,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            8,
-            9,
-            10,
-            11,
-            12,
-            13,
-            14,
-            15,
-            16,
-            17,
-            18,
-            19,
-            20,
-            21,
-            22,
+        "T",
+        "R",
+        "W",
+        "A",
+        "G",
+        "M",
+        "Y",
+        "F",
+        "P",
+        "D",
+        "X",
+        "B",
+        "N",
+        "J",
+        "Z",
+        "S",
+        "Q",
+        "V",
+        "H",
+        "L",
+        "C",
+        "K",
+        "E",
         )
 
     def getTabla(self):
         return self.tabla
     
-    def getLetra(self, letra):
+    def getLetra(self, index):
         try:
-            return self.tabla[letra]
-        except KeyError:
-            return "La letra no es válida."
+            return self.tabla[index]
+        except IndexError:
+            return "Posicion letra fuera de rango"
     
     def getModulo(self):
         return len(self.tabla)
     
     def isLetraValida(self, letra):
-        letra in self.tabla
+        return letra in self.getTabla()
 
     def calcularLetra(self, dni):
         numero_dni = dni[:-1]
