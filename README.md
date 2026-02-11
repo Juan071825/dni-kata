@@ -4,8 +4,7 @@
 <li><a href='#manual'>Manual</a></li>
 <li><a href='#metodologia'>Metodología</a></li>
 <li><a href='#diseno'>Diseño</a></li>
-<li><a href='#descripcion'>Descripción técnica</a></li>
-<li><a href='#diseño'>Diseño</a></li>
+
 
 
 ## <div id= 'introduccion'>Introducción</div>
