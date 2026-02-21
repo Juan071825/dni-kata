@@ -2,11 +2,9 @@ import pytest
 from src.tablaEquivalencias import TablaEquivalencias
 from test.test_dni_correctos import TEST_DNI_VALIDOS
 from test.test_dni_incorrectos import TEST_DNI_LETRA_ERRONEA
+from test.conftest import tablaEquivalencias
 
 
-@pytest.fixture(name="tabla")
-def tablaEquivalencias():
-    return TablaEquivalencias()
 
 
 def test_getTabla(tabla):
@@ -48,4 +46,16 @@ def test_getModulo(tabla):
 def test_isLetraValida(tabla):
     assert tabla.isLetraValida("T")
     assert not tabla.isLetraValida("I")
+
+@pytest.mark.parametrize("dni", TEST_DNI_VALIDOS)
+def test_calcularLetra_correcta(tabla, dni):
+    numero_dni = dni[:-1]
+    letra_dni = dni[-1]
+    assert tabla.calcularLetra(numero_dni) == letra_dni
+
+@pytest.mark.parametrize("dni", TEST_DNI_LETRA_ERRONEA)
+def test_calcularLetra_correcta(tabla, dni):
+    numero_dni = dni[:-1]
+    letra_dni = dni[-1]
+    assert tabla.calcularLetra(numero_dni) != letra_dni
 
