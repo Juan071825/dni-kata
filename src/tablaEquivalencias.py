@@ -41,6 +41,10 @@ class TablaEquivalencias():
     
     def isLetraValida(self, letra):
         return letra in self.tabla
+    
+    def calcularLetra(self, numero_dni):
+        posicion = int(numero_dni) % self.getModulo()
+        return self.getLetra(posicion)
 
     
     def __repr__(self):
