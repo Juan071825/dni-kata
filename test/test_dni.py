@@ -1,7 +1,6 @@
 import pytest
 from test.test_dni_correctos import TEST_DNI_VALIDOS
 from test.test_dni_incorrectos import TEST_DNI_LETRA_ERRONEA, TEST_DNI_FORMATO_ERRONEO
-from test.conftest import tablaEquivalencias
 from src.dni import Dni
 
 
