@@ -12,6 +12,10 @@ class Dni:
     def setDni(self, cadena):
         self.dni = cadena
 
+    def checkDni(self):
+        self.__actualizarNumeroSano(self.__longitudCorrecta() and self.checkNumero())
+        return self.getNumeroSano()
+
     def getDni(self):
         return self.dni
 
@@ -29,17 +33,22 @@ class Dni:
         return self.getNumeroSano()
 
     def checkLetra(self):
-        if not self.getNumeroSano():
-            self.__actualizarLetraSana(False)
-            return False
-
-        letra_correcta = self.__calcularLetra()
-        es_mayuscula = self.getParteAlfabeticaDni().isupper()
-        no_es_digito = not self.getParteAlfabeticaDni().isdigit()
-        letra_valida = letra_correcta == self.getParteAlfabeticaDni()
-
-        self.__actualizarLetraSana(es_mayuscula and no_es_digito and letra_valida)
-        return self.getLetraSana()
+        if not self.getNumeroSano(): 
+            self.__actualizarLetraSana(False) 
+            return False 
+        letra_real = self.tabla.calcularLetra(self.getParteNumericaDni()) 
+        letra_dni = self.getParteAlfabeticaDni() 
+        es_valida = letra_real == letra_dni 
+        self.__actualizarLetraSana(es_valida) 
+        return es_valida
+        
+    
+        
+    def obtenerLetra(self):
+        if self.getNumeroSano():
+            return self.tabla.calcularLetra(self.getParteNumericaDni())
+        else:
+            return None
 
     def __calcularLetra(self):
         if self.getNumeroSano():
